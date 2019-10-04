@@ -1,0 +1,61 @@
+package com.example.ot.controller;
+
+import java.lang.reflect.Field;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.ot.dao.RegionsDao;
+import com.example.ot.entity.Regions;
+
+@Controller
+@RequestMapping("/regions")
+public class RegionsController {
+	
+	private RegionsDao regionsRepo;
+	
+	@Autowired
+	public RegionsController(RegionsDao regionsRepo) {
+		this.regionsRepo = regionsRepo;
+	}
+	
+	@GetMapping
+	public JSONObject showAllRegions(Model model, Principal principal) {
+		List<Regions> regions = new ArrayList<>();
+		regionsRepo.findAll().forEach(i -> regions.add(i));
+		//return "qualcosa"  <---- Da aggiungere se voglio restituire una view
+		
+		/*JSONObject regionsObject = new JSONObject();
+		
+		for(Regions temp : regions) {
+			for (Field field : regions.getClass().getDeclaredFields()) {
+			    field.setAccessible(true);
+			    String name = field.getName();
+			    Object value=null;
+				try 
+				{
+					value = field.get(regions);
+				    regionsObject.put(name, value);
+				} catch (IllegalArgumentException e) 
+				{
+					e.printStackTrace();
+				} catch (IllegalAccessException e) 
+				{
+					e.printStackTrace();
+				}
+			}
+		}*/
+		
+		
+			
+		return regionsObject;
+
+	}
+}

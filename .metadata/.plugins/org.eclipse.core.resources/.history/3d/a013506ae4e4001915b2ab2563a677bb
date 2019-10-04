@@ -1,0 +1,18 @@
+package com.example.ot.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.ot.entity.Countries;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+
+@Repository
+public interface CountriesDao extends JpaRepository<Countries, String>{
+	@Query("SELECT COUNTRIES.COUNTRY_ID, COUNTRIES.COUNTRY_NAME, REGIONS.REGION_NAME FROM COUNTRIES JOIN REGIONS ON COUNTRIES.REGION_ID=REGIONS.REGION_ID AND COUNTRIES.REGION_ID = 1")
+	public List<Countries> findAllByRegionsId(Integer region_id);
+}

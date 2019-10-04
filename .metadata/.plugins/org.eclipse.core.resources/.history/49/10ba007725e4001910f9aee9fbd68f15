@@ -1,0 +1,9 @@
+package com.example.ot.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/query")
+public class Regions_Countries_Queries {
+
+}

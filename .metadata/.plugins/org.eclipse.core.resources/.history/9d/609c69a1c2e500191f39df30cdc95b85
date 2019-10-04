@@ -1,0 +1,20 @@
+package com.example.ot.SupervisorControllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ot.dao.CountriesDao;
+import com.example.ot.dao.EmployeesDao;
+import com.example.ot.dao.RegionsDao;
+
+@RestController
+@RequestMapping("/supervisor")
+public class ShowEmployeesOrderedByJobTitle {
+	private EmployeesDao employeesDao;
+	
+	@Autowired 
+	ShowEmployeesOrderedByJobTitle (){
+		this.employeesDao = employeesDao;
+	}
+}

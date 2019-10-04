@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\AESYS\STS_Workspace\applicazione_OT\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+935266173.index
+188340792.index
+3632982669.index
+2457223837.index
+30271302.index
+3046281830.index

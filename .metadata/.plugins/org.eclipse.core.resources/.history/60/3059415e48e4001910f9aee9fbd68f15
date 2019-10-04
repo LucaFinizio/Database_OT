@@ -1,0 +1,14 @@
+package com.example.ot.dao;
+
+import com.example.ot.entity.Countries;
+import com.example.ot.entity.Regions;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RegionsDao extends JpaRepository<Regions, Integer>{
+	public List<Countries> findAllByRegionsId();
+}

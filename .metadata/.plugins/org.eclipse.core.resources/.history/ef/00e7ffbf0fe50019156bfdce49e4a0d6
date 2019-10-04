@@ -1,0 +1,5 @@
+package com.example.ot.entity;
+
+public class Product_categories {
+
+}

@@ -1,0 +1,17 @@
+package com.example.ot.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.ot.entity.Countries;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+
+@Repository
+public interface CountriesDao extends CrudRepository<Countries, String>{
+	@Query("SELECT country_name FROM Countries")
+	public List<Countries> findAllByRegionsId(Integer region_id);
+}

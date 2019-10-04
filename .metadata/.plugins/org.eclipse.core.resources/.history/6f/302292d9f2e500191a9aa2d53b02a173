@@ -1,0 +1,17 @@
+package com.example.ot.SupervisorControllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ot.dao.Order_itemsDao;
+
+@RestController
+@RequestMapping("/supervisor")
+public class OrderedQuantityByProductId {
+	private Order_itemsDao order_itemsRepo;
+	
+	@Autowired OrderedQuantityByProductId(Order_itemsDao order_itemsRepo){
+		this.order_itemsRepo = order_itemsRepo;
+	}
+}

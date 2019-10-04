@@ -1,0 +1,31 @@
+package com.example.ot.controller;
+
+import javax.persistence.TypedQuery;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ot.dao.CountriesDao;
+import com.example.ot.dao.RegionsDao;
+import com.example.ot.entity.Regions;
+
+@RestController
+@RequestMapping("/region_countries")
+public class Regions_Countries_Queries {
+	private RegionsDao regionsRepo;
+	private CountriesDao countriesRepo;
+	
+	@Autowired Regions_Countries_Queries (RegionsDao regionsRepo, CountriesDao countriesRepo){
+		this.regionsRepo = regionsRepo;
+		this.countriesRepo = countriesRepo;
+	}
+	
+	@GetMapping
+	public String showAllCountriesWithRegion()
+	{
+		TypedQuery<Regions> query = entityManager.
+				createQuery("SELECT regions.region_name,  FROM Department d LEFT JOIN d.employees e", Regions.class);
+	}
+}

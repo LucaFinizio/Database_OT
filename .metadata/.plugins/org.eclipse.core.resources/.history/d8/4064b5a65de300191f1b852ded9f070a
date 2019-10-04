@@ -1,0 +1,48 @@
+package com.example.ot.controller;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.ot.dao.RegionsDao;
+import com.example.ot.entity.Regions;
+
+@Controller
+@RequestMapping("/regions")
+public class RegionsController {
+	
+	private RegionsDao regionsRepo;
+	
+	@Autowired
+	public RegionsController(RegionsDao regionsRepo) {
+		this.regionsRepo = regionsRepo;
+	}
+	
+	@GetMapping
+	public void showAllRegions() {
+		List<Regions> regions = new ArrayList<>();
+		regionsRepo.findAll().forEach(i -> regions.add(i));
+		//return "qualcosa"  <---- Da aggiungere se voglio restituire una view
+		
+		JSONObject regionsObject = new JSONObject();
+		
+		/*for (Regions temp : regions) {
+			
+			regionsObject.put("region_name", region_name);
+		}*/
+		
+		for (Field field : regions.getClass().getDeclaredFields()) {
+		    field.setAccessible(true);
+		    String name = field.getName();
+		    Object value = field.get(regions);
+		    regionsObject
+		}
+
+	}
+}

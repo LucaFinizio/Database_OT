@@ -1,0 +1,18 @@
+package com.example.ot.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@RequiredArgsConstructor
+@Entity
+@Table(name="ORDERS")
+public class Orders {
+
+}

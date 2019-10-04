@@ -1,0 +1,38 @@
+package com.example.ot.controller;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ot.dao.CountriesDao;
+import com.example.ot.dao.RegionsDao;
+import com.example.ot.entity.Regions;
+
+@RestController
+@RequestMapping("/region_countries")
+public class Regions_Countries_Queries {
+	private RegionsDao regionsRepo;
+	private CountriesDao countriesRepo;
+	
+	@Autowired Regions_Countries_Queries (RegionsDao regionsRepo, CountriesDao countriesRepo){
+		this.regionsRepo = regionsRepo;
+		this.countriesRepo = countriesRepo;
+	}
+	
+	@GetMapping
+	public String showAllCountriesWithRegion()
+	{
+		EntityManager em=null;
+		Query q = em.createNativeQuery("SELECT COUNTRIES.COUNTRY_NAME, REGIONS:REGION_NAME FROM REGIONS INNER"
+				+ "JOIN COUNTRIES ON REGIONS.REGION_ID=COUNTRIES.REGION_ID");
+		List<Object[]> authors = q.getResultList();
+		
+	}
+}

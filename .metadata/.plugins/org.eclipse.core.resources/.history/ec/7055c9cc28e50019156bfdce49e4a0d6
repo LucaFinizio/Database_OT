@@ -1,0 +1,11 @@
+package com.example.ot.dao;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.ot.entity.Inventories;
+
+@Repository
+public interface InventoriesDao extends CrudRepository<Inventories, Integer>{
+
+}

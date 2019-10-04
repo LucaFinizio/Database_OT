@@ -1,0 +1,10 @@
+package com.example.ot.dao;
+
+import com.example.ot.entity.Regions;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class RegionsDao extends JpaRepository<Regions, String>{
+
+}

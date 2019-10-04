@@ -1,0 +1,15 @@
+package com.example.ot.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class InventoriesId implements Serializable{
+	    @Column(name = "product_id")
+	    private long product_id;
+	    
+	    @Column(name = "warehouse_id")
+	    private long warehouse_id;
+}

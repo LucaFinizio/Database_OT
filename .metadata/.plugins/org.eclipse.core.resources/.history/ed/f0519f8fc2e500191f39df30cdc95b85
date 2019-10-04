@@ -1,0 +1,12 @@
+package com.example.ot.SupervisorControllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.ot.dao.EmployeesDao;
+
+@RestController
+@RequestMapping("/supervisor")
+public class ShowEmployeesOrderedByJobTitle {
+	private EmployeesDao employeesDao;
+}

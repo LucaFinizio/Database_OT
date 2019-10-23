@@ -1,5 +1,7 @@
 package com.example.ot.SupervisorControllers;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import com.google.gson.Gson;
 @RequestMapping("/supervisor")
 public class OrderedQuantityByProductId {
 	private Order_itemsDao order_itemsRepo;
+	EntityManager em;
 	
 	@Autowired OrderedQuantityByProductId(Order_itemsDao order_itemsRepo){
 		this.order_itemsRepo = order_itemsRepo;

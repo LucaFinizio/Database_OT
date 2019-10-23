@@ -9,5 +9,5 @@ import com.example.ot.entity.Order_items;
 @Repository
 public interface Order_itemsDao extends CrudRepository<Order_items, Integer>{
 	@Query("SELECT sum(quantity) from Order_items WHERE product_id = ?1")
-	public int findQuantityByProductId(int product_id);
+	public Integer findQuantityByProductId(int product_id);
 }

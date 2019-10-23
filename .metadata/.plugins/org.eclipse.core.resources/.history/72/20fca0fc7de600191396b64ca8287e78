@@ -1,6 +1,11 @@
 package com.example.ot.SupervisorControllers;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +24,8 @@ public class OrderedQuantityByProductId {
 	}
 	
 	@GetMapping("/product/{id}")
-	public String showOrderedQuantityByProductId(@PathVariable("id") int id) {
-		int orderedQuantity = order_itemsRepo.findQuantityByProductId(id);
+	public String showOrderedQuantityByProductId(@PathVariable("id") Integer id) {
+		Integer orderedQuantity = order_itemsRepo.findQuantityByProductId(id);
 		String orderedQuantityJSON = new Gson().toJson(orderedQuantity);
 		return orderedQuantityJSON;
 	}
